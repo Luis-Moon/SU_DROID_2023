@@ -1,11 +1,11 @@
 #!/usr/bin/env pybricks-micropython
 from pybricks.hubs import EV3Brick
-from pybricks.ev3devices import (Motor, TouchSensor, ColorSensor,
-                                 InfraredSensor, UltrasonicSensor, GyroSensor)
-from pybricks.parameters import Port, Stop, Direction, Button, Color
-from pybricks.tools import wait, StopWatch, DataLog
-from pybricks.robotics import DriveBase
-from pybricks.media.ev3dev import SoundFile, ImageFile
+from pybricks.ev3devices import *
+from pybricks.nxtdevices import *
+from pybricks.parameters import *
+from pybricks.tools import *
+from pybricks.robotics import *
+from pybricks.media.ev3dev import *
 
 
 
@@ -15,12 +15,12 @@ ev3 = EV3Brick()
 crono = StopWatch()
 vel = 160
 motorL = Motor(Port.A)
-motorR = Motor(Port.C)
-ultrassom = UltrasonicSensor(Port.S3)
-distFrente = ultrassom.distance()/10
-sensorCorL = ColorSensor(Port.S1)
-sensorCorR = ColorSensor(Port.S4)
-botao = TouchSensor(Port.S2)
+motorR = Motor(Port.B)
+# ultrassom = UltrasonicSensor(Port.S2)
+# distFrente = ultrassom.distance()/10
+sensorCorL = LightSensor(Port.S1)
+sensorCorR = LightSensor(Port.S3)
+botao = TouchSensor(Port.S4)
 robo = DriveBase(motorL, motorR, wheel_diameter=42.5, axle_track=112)
 LIDO = False
 corBrancaL = sensorCorL.reflection()
@@ -51,13 +51,13 @@ def Choose():
 
 def Verde(LIDO):
     if (LIDO):
-        return sensorCorL.color() in [Color.RED, Color.GREEN]
+        return sensorCorL.reflection() in range(10,96)
     return False
 
 
 def finished():
-    LIDO = sensorCorL.color() in [Color.RED, Color.GREEN]
-    return sensorCorL.color() in [Color.RED, Color.GREEN]
+    LIDO = sensorCorL.reflection() in range(10,96)
+    return sensorCorL.reflection() in range(10,96)
 
 
 def andarParaFrente():
