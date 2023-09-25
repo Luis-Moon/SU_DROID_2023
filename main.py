@@ -11,9 +11,5 @@ ev3 = EV3Brick()
 # Write your program here.
 ev3.speaker.beep()
 
-
-andarParaFrente()
-Choose()
-andarParaFrente()
-for i in range(1200, 0, -100):
-    ev3.speaker.beep(i)
+while True:
+    straight(100)

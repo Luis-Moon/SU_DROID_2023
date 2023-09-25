@@ -26,12 +26,13 @@ LIDO = False
 corBrancaL = sensorCorL.reflection()
 corBrancaR = sensorCorR.reflection()
 
+def victori():
+    for i in range(1200, 0, -100):
+        ev3.speaker.beep(i)
 
 def straight(velocity):
     if (sensorCorL.reflection() <= 15) and (sensorCorR.reflection() <= 15):
-        robo.stop()
-        wait(500)
-        robo.turn(-12)
+        robo.drive(velocity, 0)
     elif sensorCorL.reflection() <= 15:
         robo.stop()
         wait(500)
@@ -41,4 +42,7 @@ def straight(velocity):
         wait(500)
         robo.turn(12)
     else:
-        robo.drive(50,0)
+        robo.drive(velocity,0)
+
+
+robo.settings(100, 100, 3000 , 3000)
