@@ -11,5 +11,3 @@ from MODULOS.MOTORS import *
 # Write your program here.
 ev3.speaker.beep()
 
-while True:
-    straight(200)

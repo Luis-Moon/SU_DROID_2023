@@ -22,9 +22,10 @@ sensorCorL = LightSensor(Port.S1)
 sensorCorR = LightSensor(Port.S3)
 botao = TouchSensor(Port.S4)
 robo = DriveBase(motorL, motorR, wheel_diameter=42.5, axle_track=112)
-LIDO = False
 corBrancaL = sensorCorL.reflection()
 corBrancaR = sensorCorR.reflection()
+def som(hz):
+    ev3.speaker.beep(i)
 
 def victori():
     for i in range(1200, 0, -100):
