@@ -5,11 +5,11 @@ from MODULOS.MOTORS import *
 
 
 # Create your objects here.
-ev3 = EV3Brick()
+
 
 
 # Write your program here.
 ev3.speaker.beep()
 
 while True:
-    straight(100)
+    straight(200)

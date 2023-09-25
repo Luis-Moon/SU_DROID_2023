@@ -8,7 +8,7 @@ from pybricks.robotics import *
 from pybricks.media.ev3dev import *
 
 
-
+ev3 = EV3Brick()
 
 import time
 ev3 = EV3Brick()
@@ -30,19 +30,33 @@ def victori():
     for i in range(1200, 0, -100):
         ev3.speaker.beep(i)
 
-def straight(velocity):
-    if (sensorCorL.reflection() <= 15) and (sensorCorR.reflection() <= 15):
-        robo.drive(velocity, 0)
-    elif sensorCorL.reflection() <= 15:
-        robo.stop()
-        wait(500)
-        robo.turn(-12)
-    elif sensorCorR.reflection() <= 15:
-        robo.stop()
-        wait(500)
-        robo.turn(12)
-    else:
-        robo.drive(velocity,0)
+def preto_dos_dois_lados():
+    return (sensorCorL.reflection() <= 15) and (sensorCorR.reflection() <= 15)
+
+
+def preto_dos_dois_lados():
+    return (sensorCorL.reflection() <= 15) and (sensorCorR.reflection() <= 15)
+
+def ver_preto_esquerda():
+    return sensorCorL.reflection() <= 15
+
+
+def ver_preto_direita():
+    return sensorCorR.reflection() <= 15
+
+def virar_direita(angulo):
+    robo.turn(angulo)
+
+def virar_esquerda(angulo):
+    robo.turn(-angulo)
+
+
+def seguir_reto(velocity):
+    robo.drive(velocity, 0)
+
+
+def parar():
+    robo.stop()
 
 
 robo.settings(100, 100, 3000 , 3000)
